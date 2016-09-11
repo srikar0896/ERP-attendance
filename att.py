@@ -45,13 +45,16 @@ try:
             break
     fromDateElement = driver.find_element_by_xpath(".//*[@id='ctl00_ContentPlaceHolder1_wdcFromDate_img']")
     fromDateElement.click()
-    selectDateElement = driver.find_element_by_xpath(".//*[@id='ctl00_ContentPlaceHolder1_wdcFromDate_DrpPnl1_DP_CAL_ID_1_d1']")
+    sideArrow = driver.find_element_by_xpath(".//*[@id='ctl00_ContentPlaceHolder1_wdcFromDate_DrpPnl1_DP_CAL_ID_1_500']")
+    sideArrow.click()
+    selectDateElement = driver.find_element_by_xpath(".//*[@calid='ctl00_ContentPlaceHolder1_wdcFromDate_DrpPnl1_DP_CAL_ID_1']/tbody/tr[2]/td/table/tbody/tr[2]/td[2]")
     selectDateElement.click()
     patternElement = driver.find_element_by_xpath(".//*[@id='ddlPattern']")
     patternElement.click()
     driver.find_element_by_xpath(".//*[@id='ddlPattern']/option[2]").click()
     driver.find_element_by_xpath(".//*[@id='ctl00_ContentPlaceHolder1_Button1']").click()
     #rows = driver.find_element_by_xpath("//*[contains(@id,'oReportCell')]/table/tbody/tr[2]/td/table/tbody/tr/td/table/tbody/tr[3]/td[1]")
+    resultSet = {}
     for i in range(3,9):
         for j in range(1,9):
             if (j == 1 or j == 8):
@@ -60,6 +63,7 @@ try:
     driver.save_screenshot("log.png")
 
     print("\n    Time Executed - " + str(time.time() - start_time))
-except:
+except Exception as e:
+    print(str(e))
     print("Please Check the password!!")
 driver.quit()
