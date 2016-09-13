@@ -12,7 +12,6 @@ import threading
 import os
 from bs4 import BeautifulSoup
 
-
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
 except AttributeError:
@@ -26,8 +25,8 @@ try:
 except AttributeError:
     def _translate(context, text, disambig):
         return QtGui.QApplication.translate(context, text, disambig)
-class Ui_MainWindow(object):
 
+class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
         MainWindow.setWindowModality(QtCore.Qt.WindowModal)
@@ -1252,6 +1251,7 @@ class Ui_MainWindow(object):
 "    background-color: #05B8CC;\n"
 "}\n"
 ""))
+        MainWindow.setInputMethodHints(QtCore.Qt.ImhHiddenText)
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         self.pushButton = QtGui.QPushButton(self.centralwidget)
@@ -1263,7 +1263,7 @@ class Ui_MainWindow(object):
         self.label_2 = QtGui.QLabel(self.centralwidget)
         self.label_2.setEnabled(True)
         self.label_2.setGeometry(QtCore.QRect(0, 10, 411, 31))
-        self.label_2.setCursor(QtGui.QCursor(QtCore.Qt.WaitCursor))
+        self.label_2.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
         self.label_2.setObjectName(_fromUtf8("label_2"))
         self.label_5 = QtGui.QLabel(self.centralwidget)
         self.label_5.setGeometry(QtCore.QRect(590, 550, 51, 16))
@@ -1299,18 +1299,25 @@ class Ui_MainWindow(object):
         self.label_7.setTextInteractionFlags(QtCore.Qt.TextBrowserInteraction)
         self.label_7.setObjectName(_fromUtf8("label_7"))
         self.lineEdit_4 = QtGui.QLineEdit(self.centralwidget)
-        self.lineEdit_4.setEchoMode(QLineEdit.Password)
         self.lineEdit_4.setGeometry(QtCore.QRect(40, 200, 251, 31))
+        self.lineEdit_4.setEchoMode(QLineEdit.Password)
+        self.lineEdit_4.setInputMethodHints(QtCore.Qt.ImhNone)
         self.lineEdit_4.setText(_fromUtf8(""))
         self.lineEdit_4.setCursorMoveStyle(QtCore.Qt.LogicalMoveStyle)
         self.lineEdit_4.setObjectName(_fromUtf8("lineEdit_4"))
         self.tableWidget = QtGui.QTableWidget(self.centralwidget)
-        self.tableWidget.setGeometry(QtCore.QRect(50, 330, 256, 192))
+        self.tableWidget.setGeometry(QtCore.QRect(30, 70, 281, 291))
         self.tableWidget.hide()
-        #self.tableWidget.Header.setObjectName(_fromUtf8("tableWidget"))
-        self.tableWidget.setColumnCount(2)
+        self.tableWidget.setLineWidth(1)
         self.tableWidget.setRowCount(6)
-        self.data = {'Course':[], 'Attendance':[]}
+        self.tableWidget.setColumnCount(2)
+        self.tableWidget.setObjectName(_fromUtf8("tableWidget"))
+        self.tableWidget.horizontalHeader().setCascadingSectionResizes(False)
+        self.tableWidget.horizontalHeader().setDefaultSectionSize(130)
+        self.tableWidget.horizontalHeader().setMinimumSectionSize(130)
+        self.tableWidget.horizontalHeader().setSortIndicatorShown(True)
+        self.tableWidget.verticalHeader().setDefaultSectionSize(40)
+        self.tableWidget.verticalHeader().setSortIndicatorShown(True)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 360, 21))
@@ -1336,11 +1343,12 @@ class Ui_MainWindow(object):
         self.menuMenu.addAction(self.actionCopy)
         self.menubar.addAction(self.menuMenu.menuAction())
         self.menubar.addAction(self.menuAbout.menuAction())
+        self.data = {'Course':[], 'Attendance':[]}
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(_translate("MainWindow", "Scraper", None))
+        MainWindow.setWindowTitle(_translate("MainWindow", "ERP", None))
         self.pushButton.setToolTip(_translate("MainWindow", "<html><head/><body><p>Extract Data</p></body></html>", "click to retrieve"))
         self.pushButton.setWhatsThis(_translate("MainWindow", "<html><head/><body><p>Extract Data</p></body></html>", None))
         self.pushButton.setText(_translate("MainWindow", "Login", None))
@@ -1357,7 +1365,6 @@ class Ui_MainWindow(object):
         self.actionSave.setText(_translate("MainWindow", "Save", None))
         self.actionSave_as.setText(_translate("MainWindow", "Save as..", None))
         self.actionCopy.setText(_translate("MainWindow", "Copy", None))
-
     def getmydata(self):
         self.username = self.lineEdit_3.text()
         self.password = self.lineEdit_4.text()
@@ -1418,7 +1425,7 @@ class Ui_MainWindow(object):
                     elif (j==8):
                         course = driver.find_element_by_xpath("//*[contains(@id,'oReportCell')]/table/tbody/tr[2]/td/table/tbody/tr/td/table/tbody/tr["+ str(i) +"]/td[" + str(j) + "]").text
                         self.data['Course'].append(course)
-            driver.save_screenshot("log.png")
+            #driver.save_screenshot("log.png")
 
             print("\n    Time Executed - " + str(time.time() - start_time))
         except Exception as e:
