@@ -1,0 +1,25 @@
+[INFO  - 2016-09-13T12:19:49.733Z] GhostDriver - Main - running on port 55481
+[INFO  - 2016-09-13T12:19:53.215Z] Session [5fed1e90-79ac-11e6-ae4b-73b0cce7ec02] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2016-09-13T12:19:53.215Z] Session [5fed1e90-79ac-11e6-ae4b-73b0cce7ec02] - page.customHeaders:  - {}
+[INFO  - 2016-09-13T12:19:53.215Z] Session [5fed1e90-79ac-11e6-ae4b-73b0cce7ec02] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"windows-10-32bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2016-09-13T12:19:53.215Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 5fed1e90-79ac-11e6-ae4b-73b0cce7ec02
+[ERROR - 2016-09-13T12:19:54.621Z] Session [5fed1e90-79ac-11e6-ae4b-73b0cce7ec02] - page.onError - msg: Sys.WebForms.PageRequestManagerServerErrorException: Sys.WebForms.PageRequestManagerServerErrorException: An unknown error occurred while processing the request on the server. The status code returned from the server was: 0
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2016-09-13T12:19:54.622Z] Session [5fed1e90-79ac-11e6-ae4b-73b0cce7ec02] - page.onError - stack:
+  _endPostBack (https://nucleus.niituniversity.in/ScriptResource.axd?d=MINzMaY_is4pDgOimeP3VjELBKg6w_pkeSncNO1JL8o0YDUDSIvCWC_FqrUJujiVFVZBPs_hrKRMcUhc4bS80_22diLNwlfIpmEc9CvfC8nhawCl38ooVgqfH4ZFq1Tfau8QeLkTyxjHjwObW-oq0zdqtGScgENLk61B54G6eGwh3bTqv1IqUEkDQh_HtJOV0&t=5f9d5645:5)
+  _onFormSubmitCompleted (https://nucleus.niituniversity.in/ScriptResource.axd?d=MINzMaY_is4pDgOimeP3VjELBKg6w_pkeSncNO1JL8o0YDUDSIvCWC_FqrUJujiVFVZBPs_hrKRMcUhc4bS80_22diLNwlfIpmEc9CvfC8nhawCl38ooVgqfH4ZFq1Tfau8QeLkTyxjHjwObW-oq0zdqtGScgENLk61B54G6eGwh3bTqv1IqUEkDQh_HtJOV0&t=5f9d5645:5)
+  (anonymous function) (https://nucleus.niituniversity.in/ScriptResource.axd?d=46wOdf0VhvcQpyMlsv8-JKNbw-IURBlbmhjp1mDOXnWBk4E_tzwuSiyj0_VcaLnSNv29jUG1RmngK-hEa0V66RfYVnlz3FyXdZjfLNd-FRfdjACXFbsMCxaM3MgjiBi8ZXOLoWKq4kMMKZj_pQR_HkbTnYdLfpJ_LNS2OXXhR241&t=5f9d5645:5)
+  (anonymous function) (https://nucleus.niituniversity.in/ScriptResource.axd?d=46wOdf0VhvcQpyMlsv8-JKNbw-IURBlbmhjp1mDOXnWBk4E_tzwuSiyj0_VcaLnSNv29jUG1RmngK-hEa0V66RfYVnlz3FyXdZjfLNd-FRfdjACXFbsMCxaM3MgjiBi8ZXOLoWKq4kMMKZj_pQR_HkbTnYdLfpJ_LNS2OXXhR241&t=5f9d5645:5)
+  completed (https://nucleus.niituniversity.in/ScriptResource.axd?d=46wOdf0VhvcQpyMlsv8-JKNbw-IURBlbmhjp1mDOXnWBk4E_tzwuSiyj0_VcaLnSNv29jUG1RmngK-hEa0V66RfYVnlz3FyXdZjfLNd-FRfdjACXFbsMCxaM3MgjiBi8ZXOLoWKq4kMMKZj_pQR_HkbTnYdLfpJ_LNS2OXXhR241&t=5f9d5645:5)
+  _onReadyStateChange (https://nucleus.niituniversity.in/ScriptResource.axd?d=46wOdf0VhvcQpyMlsv8-JKNbw-IURBlbmhjp1mDOXnWBk4E_tzwuSiyj0_VcaLnSNv29jUG1RmngK-hEa0V66RfYVnlz3FyXdZjfLNd-FRfdjACXFbsMCxaM3MgjiBi8ZXOLoWKq4kMMKZj_pQR_HkbTnYdLfpJ_LNS2OXXhR241&t=5f9d5645:5)
+  openUrl (:0)
+  open (phantomjs://platform/webpage.js:281)
+  (anonymous function) (phantomjs://code/session_request_handler.js:495)
+  _execFuncAndWaitForLoadDecorator (phantomjs://code/session.js:212)
+  _postUrlCommand (phantomjs://code/session_request_handler.js:494)
+  _handle (phantomjs://code/session_request_handler.js:91)
+  _reroute (phantomjs://code/request_handler.js:61)
+  _handle (phantomjs://code/router_request_handler.js:78)
+
+  phantomjs://platform/console++.js:263 in error
