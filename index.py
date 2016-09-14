@@ -1351,7 +1351,7 @@ class Ui_MainWindow(object):
         self.label_8.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
         self.label_8.setStyleSheet(_fromUtf8("background-color:#ef5350;\n"
 "opacity:0.7;\n"
-"padding-left:140px;"))
+"padding-left:160px;"))
         self.label_8.setObjectName(_fromUtf8("label_8"))
         self.label_3 = QtGui.QLabel(self.tab)
         self.label_3.setEnabled(True)
@@ -1403,6 +1403,7 @@ class Ui_MainWindow(object):
         self.pushButton_6.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton_6.setStyleSheet(_fromUtf8(""))
         self.pushButton_6.setObjectName(_fromUtf8("pushButton_6"))
+
         self.tabWidget.addTab(self.tab_2, _fromUtf8(""))
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
@@ -1437,9 +1438,15 @@ class Ui_MainWindow(object):
         self.pushButton_6.hide()
         self.pushButton_2.clicked.connect(self.goBack)
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(0)
         self.checkInternet()
         self.lineEdit_3.setEchoMode(QLineEdit.Password)
+        MainWindow.setCentralWidget(self.centralwidget)
+        #self.pushButton_3 = QtGui.QPushButton(self.centralwidget)
+        #self.pushButton_3.setGeometry(QtCore.QRect(140, 170, 81, 31))
+        #self.pushButton_3.setObjectName(_fromUtf8("pushButton_2"))
+        #self.pushButton_3.clicked.connect(self.goBack)
+        #self.pushButton_3.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -1469,10 +1476,13 @@ class Ui_MainWindow(object):
         self.pushButton_5.setText(_translate("MainWindow", "Login", None))
         self.pushButton_6.setText(_translate("MainWindow", "Apply Local Gatepass", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "GatePass", None))
+        self.tabWidget.setCurrentIndex(0)
         self.menuMenu.setTitle(_translate("MainWindow", "Menu", None))
         self.menuAbout.setTitle(_translate("MainWindow", "About", None))
         self.actionSave.setText(_translate("MainWindow", "Save", None))
         self.actionSave_as.setText(_translate("MainWindow", "Save as..", None))
+        #self.pushButton_3.setText(_translate("MainWindow", "Retry", None))
+        #self.pushButton_3.setToolTip(_translate("MainWindow", "<html><head/><body><p>Rety for Connection</p></body></html>", "click to retrieve"))
         self.actionCopy.setText(_translate("MainWindow", "Copy", None))
     def getmydata(self):
         self.username = self.lineEdit_4.text()
@@ -1483,6 +1493,8 @@ class Ui_MainWindow(object):
         self.label_7.hide()
         self.label_4.hide()
         self.pushButton.hide()
+        #self.pushButton_3.hide()
+
         self.data = {'Course':[], 'Attendance':[]}
         driver = webdriver.PhantomJS()
         start_time = time.time()
@@ -1503,6 +1515,7 @@ class Ui_MainWindow(object):
             passFieldElement.clear()
             passFieldElement.send_keys(self.password)
             loginButtonElement.click()
+
             #time.sleep(2)
             driver.get("https://nucleus.niituniversity.in/WebApp/StudParentDashBoard/Attendance.aspx")
             #time.sleep(5)
@@ -1541,6 +1554,7 @@ class Ui_MainWindow(object):
             self.label_3.hide()
             self.label_3.hide()
             self.tableWidget.hide()
+            self.pushButton_2.setGeometry(QtCore.QRect(150, 170, 75, 31))
             self.pushButton_2.show()
         driver.quit()
         self.setmydata()
@@ -1570,7 +1584,9 @@ class Ui_MainWindow(object):
             self.tableWidget.hide()
             #print(e)
             self.label_8.show()
-            self.pushButton_3.show()
+            self.pushButton_2.show()
+            self.pushButton_2.setGeometry(QtCore.QRect(150, 170, 75, 31))
+            self.pushButton_2.setText(_translate("MainWindow", "Retry", None))
     def goBack(self):
         time.sleep(0.4)
         self.setupUi(MainWindow)
