@@ -1386,7 +1386,7 @@ class Ui_MainWindow(object):
         self.label_12.setStyleSheet(_fromUtf8("background-color:none;\n"
 ""))
         self.label_12.setText(_fromUtf8(""))
-        self.label_12.setPixmap(QtGui.QPixmap(_fromUtf8("C:/Users/sriker/Downloads/arrows.png")))
+        self.label_12.setPixmap(QtGui.QPixmap(_fromUtf8("images/gestures.png")))
         self.label_12.setScaledContents(True)
         self.label_12.setObjectName(_fromUtf8("label_12"))
         self.pushButton_3 = QtGui.QPushButton(self.tab)
@@ -1398,7 +1398,7 @@ class Ui_MainWindow(object):
         self.label_13.setStyleSheet(_fromUtf8("background-color:none;\n"
 ""))
         self.label_13.setText(_fromUtf8(""))
-        self.label_13.setPixmap(QtGui.QPixmap(_fromUtf8("C:/Users/sriker/Downloads/png/close.png")))
+        self.label_13.setPixmap(QtGui.QPixmap(_fromUtf8("images/close.png")))
         self.label_13.setScaledContents(True)
         self.label_13.setObjectName(_fromUtf8("label_13"))
         self.label_14 = QtGui.QLabel(self.tab)
@@ -1406,7 +1406,7 @@ class Ui_MainWindow(object):
         self.label_14.setStyleSheet(_fromUtf8("background-color:none;\n"
 ""))
         self.label_14.setText(_fromUtf8(""))
-        self.label_14.setPixmap(QtGui.QPixmap(_fromUtf8("C:/Users/sriker/Downloads/png/interface.png")))
+        self.label_14.setPixmap(QtGui.QPixmap(_fromUtf8("images/interface.png")))
         self.label_14.setScaledContents(True)
         self.label_14.setObjectName(_fromUtf8("label_14"))
         self.label_16 = QtGui.QLabel(self.tab)
@@ -1458,7 +1458,7 @@ class Ui_MainWindow(object):
         self.label_9.setStyleSheet(_fromUtf8("background-color:none;\n"
 ""))
         self.label_9.setText(_fromUtf8(""))
-        self.label_9.setPixmap(QtGui.QPixmap(_fromUtf8("C:/Users/sriker/Downloads/png/close.png")))
+        self.label_9.setPixmap(QtGui.QPixmap(_fromUtf8("images/close.png")))
         self.label_9.setScaledContents(True)
         self.label_9.setObjectName(_fromUtf8("label_9"))
         self.label_10 = QtGui.QLabel(self.tab_2)
@@ -1476,7 +1476,7 @@ class Ui_MainWindow(object):
         self.label_11.setStyleSheet(_fromUtf8("background-color:none;\n"
 ""))
         self.label_11.setText(_fromUtf8(""))
-        self.label_11.setPixmap(QtGui.QPixmap(_fromUtf8("C:/Users/sriker/Downloads/png/interface.png")))
+        self.label_11.setPixmap(QtGui.QPixmap(_fromUtf8("images/interface.png")))
         self.label_11.setScaledContents(True)
         self.label_11.setObjectName(_fromUtf8("label_11"))
         self.label_11.raise_()
@@ -1535,14 +1535,13 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "NU", None))
         self.label_5.setText(_translate("MainWindow", "Github :", None))
         self.label_6.setText(_translate("MainWindow", "Lucifer", None))
-        self.lineEdit_3.setToolTip(_translate("MainWindow", "<html><head/><body><p>Enter the url to Extract the data</p><p><br/></p></body></html>", None))
-        self.pushButton_2.setText(_translate("MainWindow", "Go back", None))
+        self.lineEdit_4.setToolTip(_translate("MainWindow", "<html><head/><body><p>Enter valid Enrollement Number</p><p><br/></p></body></html>", None))
         self.pushButton.setToolTip(_translate("MainWindow", "<html><head/><body><p>Extract Data</p></body></html>", "click to retrieve"))
         self.pushButton.setWhatsThis(_translate("MainWindow", "<html><head/><body><p>Extract Data</p></body></html>", None))
         self.pushButton.setText(_translate("MainWindow", "Login", None))
         self.label_4.setText(_translate("MainWindow", "Password", None))
         self.label_7.setText(_translate("MainWindow", "Enrollment Number", None))
-        self.lineEdit_4.setToolTip(_translate("MainWindow", "<html><head/><body><p>Enter the url to Extract the data</p><p><br/></p></body></html>", None))
+        self.lineEdit_3.setToolTip(_translate("MainWindow", "<html><head/><body><p>Enter the password</p><p><br/></p></body></html>", None))
         self.label_8.setToolTip(_translate("MainWindow", "<html><head/><body><p>Status of the process</p><p><br/></p></body></html>", None))
         self.label_8.setText(_translate("MainWindow", "Error Connection", None))
         self.label_3.setToolTip(_translate("MainWindow", "<html><head/><body><p>Status of the process</p><p><br/></p></body></html>", None))
@@ -1575,6 +1574,8 @@ class Ui_MainWindow(object):
         self.label_7.hide()
         self.label_4.hide()
         self.pushButton.hide()
+        self.pushButton_2.setText(_translate("MainWindow", "Go back", None))
+
         #self.pushButton_3.hide()
 
         self.data = {'Course':[], 'Attendance':[]}
@@ -1586,9 +1587,9 @@ class Ui_MainWindow(object):
         loginButtonXPath = ".//*[@id='SchSel_btnLogin']"
         attendance = ".//a[@id='hyplnkProfile']"
         #flLogoXpath = ".//*[@id='divUpper']/table/tbody/tr/td/table/tbody/tr[1]/td/u"
-        emailFieldElement = WebDriverWait(driver, 20).until(lambda driver: driver.find_element_by_xpath(emailFieldID))
-        passFieldElement = WebDriverWait(driver, 20).until(lambda driver: driver.find_element_by_xpath(passFieldID))
-        loginButtonElement = WebDriverWait(driver, 20).until(lambda driver: driver.find_element_by_xpath(loginButtonXPath))
+        emailFieldElement = WebDriverWait(driver, 50).until(lambda driver: driver.find_element_by_xpath(emailFieldID))
+        passFieldElement = WebDriverWait(driver, 50).until(lambda driver: driver.find_element_by_xpath(passFieldID))
+        loginButtonElement = WebDriverWait(driver, 50).until(lambda driver: driver.find_element_by_xpath(loginButtonXPath))
         try:
             emailFieldElement.click()
             emailFieldElement.clear()
@@ -1598,7 +1599,7 @@ class Ui_MainWindow(object):
             passFieldElement.send_keys(self.password)
             loginButtonElement.click()
 
-            #time.sleep(2)
+            time.sleep(2)
             #driver.save_screenshot("error.png")
             #time.sleep(5)
             #print(driver.current_url)
@@ -1632,28 +1633,31 @@ class Ui_MainWindow(object):
                         att = driver.find_element_by_xpath("//*[contains(@id,'oReportCell')]/table/tbody/tr[2]/td/table/tbody/tr/td/table/tbody/tr["+ str(i) +"]/td[" + str(j) + "]").text
                         self.data['Course'].append(att)
                         if (float(att)<75):
+                            #print("fails loop")
                             self.failCount = self.failCount + 1
-                            self.label_13.show()
-                            self.label_16.show()
-                            msg = self.failCount + "Courses are below 75%."
-                            self.label_16.setText(_translate("MainWindow", msg , None))
+                            #
+                            #self.attendanceShortage(self.failCount)
                             #print("Not safe")
                         else:
-                            self.label_14.show()
-                            self.label_16.show()
-                            self.label_16.setText(_translate("MainWindow", "All Subjects above 75%", None))
+                            if(self.failCount == 0):
+                                self.label_14.show()
+                                self.label_16.show()
+                                self.label_16.setText(_translate("MainWindow", "All Subjects above 75%", None))
 
             #driver.save_screenshot("log.png")
             self.pushButton_3.show()
+            if(self.failCount > 0):
+                self.attendanceShortage(self.failCount)
             #print("\n    Time Executed - " + str(time.time() - start_time))
         except Exception as e:
             self.label_2.show()
             self.label_3.hide()
             self.label_3.hide()
             self.tableWidget.hide()
-            self.pushButton_2.setGeometry(QtCore.QRect(150, 170, 75, 31))
+            self.pushButton_2.setGeometry(QtCore.QRect(157, 162, 75, 31))
             self.pushButton_2.show()
-            #print(e)
+            self.label_12.show()
+            print(e)
         driver.quit()
         self.setmydata()
         self.tableWidget.setGeometry(QtCore.QRect(20, 110, 321, 192))
@@ -1689,6 +1693,18 @@ class Ui_MainWindow(object):
     def goBack(self):
         time.sleep(0.4)
         self.setupUi(MainWindow)
+    def attendanceShortage(self,shortageNumber):
+        self.label_13.show()
+        self.label_14.hide()
+        self.label_16.show()
+        if(shortageNumber == 1):
+            self.msg = str(shortageNumber) + " Course is below 75%"
+        elif(shortageNumber > 1):
+            self.msg = str(shortageNumber) + " Courses are below 75%"
+        self.label_16.setGeometry(QtCore.QRect(150, 338, 131, 31))
+        self.label_13.setGeometry(QtCore.QRect(120,340,21,21))
+        self.label_16.setText(_translate("MainWindow", str(self.msg) , None))
+
 
 if __name__ == "__main__":
     import sys
