@@ -1135,7 +1135,7 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "QTableView::item:selected:active, QTreeView::item:selected:active, QListView::item:selected:active  {\n"
-"    background: #3daee9;\n"
+"    background: #ef5350;\n"
 "    color: #eff0f1;\n"
 "}\n"
 "\n"
@@ -1314,6 +1314,7 @@ class Ui_MainWindow(object):
         self.tableWidget.horizontalHeader().setMinimumSectionSize(130)
         self.tableWidget.horizontalHeader().setSortIndicatorShown(True)
         self.tableWidget.verticalHeader().setDefaultSectionSize(40)
+        self.tableWidget.setSelectionBehavior(QtGui.QAbstractItemView.SelectRows)
         self.tableWidget.verticalHeader().setSortIndicatorShown(True)
         self.pushButton_2 = QtGui.QPushButton(self.tab)
         self.pushButton_2.setGeometry(QtCore.QRect(140, 160, 75, 31))
@@ -1670,6 +1671,11 @@ class Ui_MainWindow(object):
             for m, item in enumerate(self.data[key]):
                 newitem = QTableWidgetItem(item)
                 self.tableWidget.setItem(m, n, newitem)
+                if(n == 1):
+                    #print(self.data[key][m])
+                    self.value = self.data[key][m]
+                    if (float(self.value) < 75):
+                        self.tableWidget.setItemSelected(newitem,True)
         self.tableWidget.setHorizontalHeaderLabels(horHeaders)
     def checkInternet(self):
         try:
